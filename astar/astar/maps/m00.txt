@@ -1,0 +1,12 @@
+TABLEROW 5
+TABLECOLUMN 6
+0 0 0 0 0 0
+0 0 0 3 0 0
+0 1 0 3 2 0
+0 0 0 3 0 0
+0 0 0 0 0 0
+
+// 1 means starting point
+// 2 means goal point
+// 3 means obstacle
+// | means output path
