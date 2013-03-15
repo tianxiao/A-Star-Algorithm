@@ -16,6 +16,11 @@ namespace squaredisplay
 
         txMap gmap;
 
+        internal txMap Gmap
+        {
+            get { return gmap; }
+        }
+
         int wwidth;
         int wheight;
 
@@ -43,10 +48,15 @@ namespace squaredisplay
 
             gmap = new txMap(l, h);
 
+            InitializeD();
+
+        }
+
+        private void InitializeD()
+        {
             SetUnitSquareL();
 
             InitializeDistanceColorRange();
-
         }
 
         public txSquare()
@@ -79,6 +89,8 @@ namespace squaredisplay
             entitiecolors[(int)txEntitiesC.START] = Color.Red;
             entitiecolors[(int)txEntitiesC.GOAL] = Color.Green;
             entitiecolors[(int)txEntitiesC.OBSTACLE] = Color.Brown;
+            entitiecolors[(int)txEntitiesC.SHOTEST_PATH] = Color.BlueViolet;
+            entitiecolors[(int)txEntitiesC.ACCESSED_CELL] = Color.Cyan;
         }
 
         public void SetDc(Graphics dc)
@@ -90,6 +102,8 @@ namespace squaredisplay
         {
             wwidth = w;
             wheight = h;
+
+            InitializeD();
         }
 
         public void Scale(double s)
@@ -111,14 +125,27 @@ namespace squaredisplay
             }
         }
 
+        public void DrawPath(int[] path)
+        {
+            for (int i = 0; i < path.Length; i+=2)
+            {
+                DrawShell(path[i], path[i + 1], entitiecolors[(int)txEntitiesC.SHOTEST_PATH]);
+            }
+        }
+
+        public void DrawAccessedCell(int[] accessed)
+        {
+            for (int i = 0; i < accessed.Length; i+=2)
+            {
+                DrawShell(accessed[i], accessed[i + 1], entitiecolors[(int)txEntitiesC.ACCESSED_CELL]);
+            }
+        }
+
         private void DrawShell(int i, int j, Color c)
         {
             Point p1 = new Point();
-            p1.X = startx + i * cubel;
-            p1.Y = starty + j * cubel;
-            Point p2 = new Point();
-            p2.X = p1.X + cubel;
-            p2.Y = p1.Y + cubel;
+            p1.X = startx + j * cubel;
+            p1.Y = starty + i * cubel;
 
             Rectangle r = new Rectangle();
             r.X = p1.X+1;
@@ -126,7 +153,6 @@ namespace squaredisplay
             r.Width = cubel-1;
             r.Height = cubel-1;
             
-
             Brush b = new SolidBrush(c);
             //dc.FillRectangle(p,r);
             dc.FillRectangle(b, r);
@@ -145,12 +171,10 @@ namespace squaredisplay
 
         private void DrawWareFrame()
         {
-
-
             startx = (int)(wwidth*0.05);
             starty = (int)(wheight*0.05);
 
-            int wl = cubel*m;
+            int wl = cubel*(m);
             int wh = cubel*n;
 
             Pen graypen = new Pen(Color.Gray,1);
@@ -158,12 +182,12 @@ namespace squaredisplay
             for (int i = 0; i <= m; i++)
             { 
                 
-                dc.DrawLine(graypen, new Point(startx, starty+i*cubel), new Point(startx+wl, starty+i*cubel));
+                dc.DrawLine(graypen, new Point(startx, starty+i*cubel), new Point(startx+wh, starty+i*cubel));
             }
 
             for (int i = 0; i <= n; i++)
             {
-                dc.DrawLine(graypen, new Point(startx + i * cubel, starty), new Point(startx + i * cubel, starty + wh));
+                dc.DrawLine(graypen, new Point(startx + i * cubel, starty), new Point(startx + i * cubel, starty + wl));
             }
         }
     }

@@ -3,16 +3,62 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "squaredisplay", "squaredisplay\squaredisplay.csproj", "{252C5BB6-CE1E-45B2-BA2B-F9637501933F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AStarImp", "AStarImp\AStarImp.vcxproj", "{613A70A7-18E4-4488-9E59-D7E048994AC3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cppwrapper", "cppwrapper\cppwrapper.vcxproj", "{7EB85401-9165-4940-976F-F662FF769960}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cstarwrapper01", "cstarwrapper01\cstarwrapper01.vcxproj", "{C2826E94-875D-4D1D-ABDD-F521061D4CD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
 		Debug|x86 = Debug|x86
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{252C5BB6-CE1E-45B2-BA2B-F9637501933F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{252C5BB6-CE1E-45B2-BA2B-F9637501933F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{252C5BB6-CE1E-45B2-BA2B-F9637501933F}.Debug|Win32.ActiveCfg = Debug|x86
 		{252C5BB6-CE1E-45B2-BA2B-F9637501933F}.Debug|x86.ActiveCfg = Debug|x86
 		{252C5BB6-CE1E-45B2-BA2B-F9637501933F}.Debug|x86.Build.0 = Debug|x86
+		{252C5BB6-CE1E-45B2-BA2B-F9637501933F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{252C5BB6-CE1E-45B2-BA2B-F9637501933F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{252C5BB6-CE1E-45B2-BA2B-F9637501933F}.Release|Win32.ActiveCfg = Release|x86
 		{252C5BB6-CE1E-45B2-BA2B-F9637501933F}.Release|x86.ActiveCfg = Release|x86
 		{252C5BB6-CE1E-45B2-BA2B-F9637501933F}.Release|x86.Build.0 = Release|x86
+		{613A70A7-18E4-4488-9E59-D7E048994AC3}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{613A70A7-18E4-4488-9E59-D7E048994AC3}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{613A70A7-18E4-4488-9E59-D7E048994AC3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{613A70A7-18E4-4488-9E59-D7E048994AC3}.Debug|Win32.Build.0 = Debug|Win32
+		{613A70A7-18E4-4488-9E59-D7E048994AC3}.Debug|x86.ActiveCfg = Debug|Win32
+		{613A70A7-18E4-4488-9E59-D7E048994AC3}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{613A70A7-18E4-4488-9E59-D7E048994AC3}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{613A70A7-18E4-4488-9E59-D7E048994AC3}.Release|Win32.ActiveCfg = Release|Win32
+		{613A70A7-18E4-4488-9E59-D7E048994AC3}.Release|Win32.Build.0 = Release|Win32
+		{613A70A7-18E4-4488-9E59-D7E048994AC3}.Release|x86.ActiveCfg = Release|Win32
+		{7EB85401-9165-4940-976F-F662FF769960}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{7EB85401-9165-4940-976F-F662FF769960}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{7EB85401-9165-4940-976F-F662FF769960}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7EB85401-9165-4940-976F-F662FF769960}.Debug|Win32.Build.0 = Debug|Win32
+		{7EB85401-9165-4940-976F-F662FF769960}.Debug|x86.ActiveCfg = Debug|Win32
+		{7EB85401-9165-4940-976F-F662FF769960}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{7EB85401-9165-4940-976F-F662FF769960}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{7EB85401-9165-4940-976F-F662FF769960}.Release|Win32.ActiveCfg = Release|Win32
+		{7EB85401-9165-4940-976F-F662FF769960}.Release|Win32.Build.0 = Release|Win32
+		{7EB85401-9165-4940-976F-F662FF769960}.Release|x86.ActiveCfg = Release|Win32
+		{C2826E94-875D-4D1D-ABDD-F521061D4CD8}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{C2826E94-875D-4D1D-ABDD-F521061D4CD8}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{C2826E94-875D-4D1D-ABDD-F521061D4CD8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C2826E94-875D-4D1D-ABDD-F521061D4CD8}.Debug|Win32.Build.0 = Debug|Win32
+		{C2826E94-875D-4D1D-ABDD-F521061D4CD8}.Debug|x86.ActiveCfg = Debug|Win32
+		{C2826E94-875D-4D1D-ABDD-F521061D4CD8}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{C2826E94-875D-4D1D-ABDD-F521061D4CD8}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{C2826E94-875D-4D1D-ABDD-F521061D4CD8}.Release|Win32.ActiveCfg = Release|Win32
+		{C2826E94-875D-4D1D-ABDD-F521061D4CD8}.Release|Win32.Build.0 = Release|Win32
+		{C2826E94-875D-4D1D-ABDD-F521061D4CD8}.Release|x86.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
