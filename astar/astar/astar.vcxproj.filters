@@ -27,6 +27,12 @@
     <ClInclude Include="txNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="txAstar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="txMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -36,6 +42,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="txNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="txAstar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="txMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

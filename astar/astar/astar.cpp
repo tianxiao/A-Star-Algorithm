@@ -8,6 +8,8 @@
 #include <vector>
 
 #include "txNode.h"
+#include "txMap.h"
+#include "txAstar.h"
 
 #define TABLEROW 5
 #define TABLECOLUMN 6
@@ -67,7 +69,7 @@ void initializemap()
 	map[1][4] = -1;
 }
 
-txNode *mimNodesInOpennodes()
+txNode *minNodesInOpennodes()
 {
 	assert(opennodes.size());
 	int min = MAXH;
@@ -225,44 +227,70 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	initializemap();
 
-	txNode * startnode = new txNode;
-	startnode->i = STARTI;
-	startnode->j = STARTJ;
-	startnode->g = 0;
-	startnode->h = diganalHeuristicF(*startnode);
-	startnode->f = startnode->g + startnode->h;
-	startnode->parent = NULL;
-
-	opennodes.push_back(startnode);
-
-	txNode *goal = new txNode;
-
-	while (opennodes.size())
+	int nmap[TABLEROW][TABLECOLUMN] = 
 	{
-		txNode *node = mimNodesInOpennodes();
+		{0,0,0,0,0,0},
+		{0,0,0,3,0,0},
+		{0,1,0,3,2,0},
+		{0,0,0,3,0,0},
+		{0,0,0,0,0,0}
+	};
 
-		moveOpen2Close(node);
-
-		if (isGoal(node)){
-			goal->parent = node;
-			break;
-		}
-
-		std::list<txNode *> adj;
-		adj = nodeAdjacent(node);
-
-		for (std::list<txNode*>::iterator it=adj.begin(); it!=adj.end(); it++)
+	int c=0; 
+	int cmap[TABLEROW*TABLECOLUMN];
+	for (int i=0; i<TABLEROW; i++)
+	{
+		for (int j=0; j<TABLECOLUMN; j++)
 		{
-			if (isExistsEqualBetter(*it,opennodes)) continue;
-			if (isExistsEqualBetter(*it,closenodes)) continue;
-
-			removeNode(*it, opennodes);
-			removeNode(*it, closenodes);
-
-			opennodes.push_back(*it);
+			cmap[c++] = nmap[i][j];
 		}
-
 	}
+
+	txMap map(TABLEROW, TABLECOLUMN);
+	map.SetMap(cmap);
+
+	txAstar astar(&map);
+	astar.CalculatePath();
+
+
+	//txNode * startnode = new txNode;
+	//startnode->i = STARTI;
+	//startnode->j = STARTJ;
+	//startnode->g = 0;
+	//startnode->h = diganalHeuristicF(*startnode);
+	//startnode->f = startnode->g + startnode->h;
+	//startnode->parent = NULL;
+
+	//opennodes.push_back(startnode);
+
+	//txNode *goal = new txNode;
+
+	//while (opennodes.size())
+	//{
+	//	txNode *node = minNodesInOpennodes();
+
+	//	moveOpen2Close(node);
+
+	//	if (isGoal(node)){
+	//		goal->parent = node;
+	//		break;
+	//	}
+
+	//	std::list<txNode *> adj;
+	//	adj = nodeAdjacent(node);
+
+	//	for (std::list<txNode*>::iterator it=adj.begin(); it!=adj.end(); it++)
+	//	{
+	//		if (isExistsEqualBetter(*it,opennodes)) continue;
+	//		if (isExistsEqualBetter(*it,closenodes)) continue;
+
+	//		removeNode(*it, opennodes);
+	//		removeNode(*it, closenodes);
+
+	//		opennodes.push_back(*it);
+	//	}
+
+	//}
 
 
 
